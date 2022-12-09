@@ -22,8 +22,10 @@ app.use(
 
 // Routes
 const loginRoute = require('./routes/login');
+const registerRoute = require('./routes/register');
 
 app.use('/login', loginRoute);
+app.use('/register', registerRoute);
 
 
 app.get('/', middleware.requireLogin, (req, res) => {
