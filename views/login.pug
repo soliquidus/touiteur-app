@@ -1,0 +1,12 @@
+extends layouts/login-layout.pug
+
+block content
+    .loginContainer
+        h1 Connectez-vous
+        p.errMessage #{errorMessage}
+        form(method="post")
+            input( type="text", name="loginUsername", placeholder="Nom d'utilisateur ou mot de passe", value=logUsername required="")
+            input( type="text", name="loginPassword", placeholder="Mot de passe", required="")
+            input( type="submit", value="Connexion")
+        a(href="/register") Pas de compte ? Inscrivez-vous ici.
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js', integrity='sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj', crossorigin='anonymous')
