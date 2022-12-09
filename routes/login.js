@@ -3,16 +3,6 @@ const app = express();
 const User = require('../schemas/userSchema');
 const bcrypt = require('bcrypt');
 
-// JSON parsing for application/json
-app.use(express.json());
-
-// URL encoding for applictation/x-www-form-urlencoded
-app.use(express.urlencoded({extended: true}));
-
-// Pug configuration and views location
-app.set('view engine', 'pug');
-app.set('views', 'views');
-
 /**
  * Login page
  */
