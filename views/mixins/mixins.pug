@@ -1,0 +1,44 @@
+mixin createPostForm(userLoggedIn)
+    .postFormContainer
+        .userImageContainer
+            img(src=userLoggedIn.profilePic, alt="user's profile picure")
+        .textAreaContainer
+            textarea#postTextarea(placeholder="Quoi de neuf ?")
+            .button
+                button#submitPostButton(disabled="") Poster
+
+mixin createReplyModal(userLoggedIn)
+    #replyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='replyModalLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5#replyModalLabel.modal-title Répondre
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    #originalPostContainer
+                    .postFormContainer
+                        .userImageContainer
+                            img(src=userLoggedIn.profilePic, alt="user's profile picure")
+                        .textAreaContainer
+                            textarea#replyTextarea(placeholder="Quoi de neuf ?")
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Fermer
+                    button#submitReplyButton.btn.btn-primary(type='button',disabled="") Sauvegarder les changements
+mixin createDeleteModal()
+    #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5#deleteModalLabel.modal-title Supprimer le touite ?
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                .modal-body
+                    p Vous ne pourrez pas supprimer cela.
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Fermer
+                    button#submitDeleteButton.btn.btn-primary(type='button') Supprimer
+
+mixin createPostModals(userLoggedIn)
+    +createReplyModal(userLoggedIn)
+    +createDeleteModal()
